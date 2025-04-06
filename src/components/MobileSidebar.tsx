@@ -4,27 +4,33 @@ import {
   Earth,
   LayoutDashboard,
 } from "lucide-react";
+import { Link } from "react-router-dom"
 
 const navLinks = [
   {
     id: 1,
     title: "Dashboard",
+    href: "#"
   },
   {
     id: 1,
     title: "Analytics",
+    href: "/"
   },
   {
     id: 1,
     title: "Connect",
+    href: "#"
   },
   {
     id: 1,
     title: "Activity",
+    href: "#"
   },
   {
     id: 1,
     title: "Dealroom",
+    href: "#"
   },
 ];
 
@@ -36,8 +42,9 @@ const MobileSidebar = () => {
       {navLinks.map((link, i) => {
         const Icon = Icons[i] ? Icons[i] : "";
         return (
-          <div
+          <Link
             key={link.id}
+            to={link.href}
             className="flex flex-col items-center justify-center gap-0.5"
           >
             {Icon ? (
@@ -46,7 +53,7 @@ const MobileSidebar = () => {
               <img height="28px" width="28px" src="/dealroom.png" alt="icon" />
             )}
             <span className="text-[8px] font-semibold">{link.title}</span>
-          </div>
+          </Link>
         );
       })}
     </div>
